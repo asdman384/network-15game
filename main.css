@@ -38,6 +38,7 @@
 .opponent .game15 > div{    
     width: 35px;
     height: 35px;
+    line-height: 35px;
     cursor: default !important; 
 }
 
