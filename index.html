@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">        
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <div class="game-holder">
+
+            <div class="field">
+                <span>your moves: </span><span id="your-moves">-</span>
+                <div id="game15" class="game15">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="field opponent">
+                <span>opponent moves: </span><span id="opponent-moves">-</span>
+                <div id="opponent" class="game15">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="start-host">start Host</button>            
+        </div>
+
+
+        <div class="host-list">
+            hostlist
+            <div id="host-list"></div>
+        </div>
+        
+        <div class="user-list">
+            users online: <span id="users-count"></span>
+        </div>
+
+
+        <script src="game15.js"></script>
+        <script src="main.js"></script>
+        <script src="model.js"></script>
+        <script src="view.js"></script>
+        <script src="controller.js"></script>
+    </body>
+</html>

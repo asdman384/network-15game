@@ -1,0 +1,63 @@
+.game15 {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    width: 200px;
+    height: 200px;
+}
+.game15 > div {                
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: inherit;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    user-select: none;  
+    -webkit-user-select: none;
+    transition: opacity .3s ease-in-out;
+}
+.hidden {
+    color: #fff;
+    opacity: 0;
+    cursor: default !important;
+}
+
+.opponent {
+    margin-left: 45px;     
+}
+
+.opponent .game15{
+    width: 160px;
+    height: 160px;
+}
+.opponent .game15 > div{    
+    width: 35px;
+    height: 35px;
+    cursor: default !important; 
+}
+
+
+.field{
+    display: inline-block;
+}
+
+.user-list{
+    float: left;
+    display: inline-block;
+    width: 300px;
+}
+
+.host-list{
+    float: left;
+    display: inline-block;
+    width: 300px;
+}
+
+.controls{
+
+}
