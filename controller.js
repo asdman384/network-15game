@@ -127,7 +127,7 @@ var C = {
         var games = data.val();
         V.clearHostList();
         for (var item in games) {
-            if (!games[item].client) {
+            if (!games[item].clientField) {
                 V.addHost(item);
             }
         }
