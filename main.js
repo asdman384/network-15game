@@ -3,7 +3,7 @@
 var R = {
     init: function () {
 
-        $('#start-host').on('click', C.startHost);        
+        $('#start-host').on('click', C.startHost);
         V.hostList.on('click', '.connect', C.connect);
     }
 }
@@ -14,14 +14,18 @@ $(document).ready(function () {
     V.init();
     R.init();
     M.init();
-    C.init();   
+    C.init();
 
     V.$selfTiles.click(function () {
         var result = game15.swap(+this.innerText);
         if (result.swaped) {
             C.move(result.field);
-            V.draw(result.field, 'self');    
-            V.updateSelfMovesCounter(result.moves);
+            V.draw(result.field, 'self');
+            var f = '';
+            if (result.win) {
+                f = ' finished ' + Date().slice(15, 25);
+            }
+            V.updateSelfMovesCounter(result.moves + f);
         }
     });
 

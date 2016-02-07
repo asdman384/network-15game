@@ -5,7 +5,7 @@ var M = {
         this.games = this.FB.child("games");
         this.users = this.FB.child("users");
     },
-    startHost: function (id, onComplete) {
+    startHost: function (onComplete) {
         var game = this.FB.child("games").push(
                 {
                     hostField: true,

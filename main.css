@@ -1,3 +1,6 @@
+body{
+    font: 12px Tahoma;
+}
 .game15 {
     display: flex;
     display: -webkit-flex;
@@ -5,23 +8,29 @@
     flex-wrap: wrap;
     -webkit-justify-content: space-around;
     justify-content: space-around;
-    width: 200px;
-    height: 200px;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 201px;
+    height: 201px;
+    border-radius: 2px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
-.game15 > div {                
+.game15 > div {    
+    color: #A97967;
+    font-size: 20px;
     width: 45px;
     height: 45px;
-    border-radius: 5px;
+    border-radius: 1px;
     background-color: inherit;
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     text-align: center;
     line-height: 45px;
-    cursor: pointer;
-    user-select: none;  
+    cursor: pointer;    
     -webkit-user-select: none;
-    transition: opacity .3s ease-in-out;
+    transition: opacity .2s ease-in-out;
 }
-.hidden {
+div.hidden {
     color: #fff;
     opacity: 0;
     cursor: default !important;
@@ -32,10 +41,11 @@
 }
 
 .opponent .game15{
-    width: 160px;
-    height: 160px;
+    width: 161px;
+    height: 161px;
 }
 .opponent .game15 > div{    
+    font-size: 15px;
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -60,5 +70,5 @@
 }
 
 .controls{
-
+    margin: 5px;
 }

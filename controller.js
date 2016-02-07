@@ -5,7 +5,7 @@ var C = {
     game: null,
     gameStarted: false,
     usersCounter: 0,
-    opponentMoves: 0,
+    opponentMoves: -1,
     init: function () {
         M.users.transaction(function (usersCount) {
             C.usersCounter = ++usersCount;
@@ -25,7 +25,7 @@ var C = {
     connect: function () {
         if (C.game) {
             return;
-        }        
+        }
 
         var gameId = this.id;
         M.connect(
@@ -42,10 +42,9 @@ var C = {
     startHost: function () {
         if (C.game) {
             return;
-        }        
+        }
 
         M.startHost(
-                C.currentUserId,
                 function (key) {
                     C.game = key;
                     C.state = 'host';
@@ -65,7 +64,7 @@ var C = {
         }
     },
     gameListener: function (data) {
-        var game = data.val();        
+        var game = data.val();
 
         if (!game.hostField || !game.clientField) {
             return;
@@ -76,10 +75,10 @@ var C = {
             return;
         }
 
-        M.game.off("value", C.gameListener);        
+        M.game.off("value", C.gameListener);
         switch (C.state) {
             case 'host':
-                C.opponentMoves = -1;
+                C.opponentMoves = -2;
                 M.game.child('clientField').on("value", C.opponentFieldListener);
                 break;
             case 'client':
@@ -89,9 +88,14 @@ var C = {
 
     },
     opponentFieldListener: function (data) {
-        var opponentField = data.val();        
+        var opponentField = data.val();
         V.draw(opponentField, 'opponent');
-        V.updateOpponentMovesCounter(C.opponentMoves++);
+        C.opponentMoves++;
+        var f = '';
+        if (opponentField.join('') === '12345678910111213141516') {
+            f = ' finished ' + Date().slice(15,25);
+        }
+        V.updateOpponentMovesCounter(C.opponentMoves + f);
     },
     startGame: function () {
 
@@ -105,7 +109,7 @@ var C = {
                 break;
             case 'client':
                 M.game.on("value", function init(data) {
-                    var game = data.val();                    
+                    var game = data.val();
                     if (typeof game.hostField === "boolean") {
                         return;
                     }
@@ -120,7 +124,7 @@ var C = {
         }
     },
     gamesListener: function (data) {
-        var games = data.val();        
+        var games = data.val();
         V.clearHostList();
         for (var item in games) {
             if (!games[item].client) {
@@ -129,7 +133,7 @@ var C = {
         }
     },
     usersListener: function (data) {
-        var count = data.val();        
+        var count = data.val();
         C.usersCounter = count;
         V.updateUsersCounter(count);
     }
