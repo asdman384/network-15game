@@ -10,7 +10,7 @@ var R = {
 
 
 $(document).ready(function () {
-
+    
     V.init();
     R.init();
     M.init();
