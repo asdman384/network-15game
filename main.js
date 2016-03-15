@@ -10,7 +10,7 @@ var R = {
 
 
 $(document).ready(function () {
-
+console.log(window.top.vk);
     V.init();
     R.init();
     M.init();
